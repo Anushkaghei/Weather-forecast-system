@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Weather Forecast Application</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?weather');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures the background image remains fixed while scrolling */
+            background-position: center center;
+            color: #000; /* Set text color to black */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: 100vh; /* Full viewport height */
+            position: relative; /* Set position relative for absolute positioning */
+        }
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px; /* Add border-radius for rounded corners */
+            text-align: center;
+            z-index: 1; /* Ensure the content container is above the background image */
+            position: relative; /* Set position relative */
+            margin-bottom: 20px; /* Add margin at the bottom to create space for buttons */
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #64b5f6; /* Blue Button color */
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-right: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:last-child {
+            margin-right: 0; /* Remove margin from the last button */
+        }
+        .button:hover {
+            background-color: #1976d2; /* Darker Blue hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <h1>Welcome to the Weather Forecast Application</h1>
+        <p>Get the latest weather trends and forecasts for your location.</p>
+    </div>
+
+    <!-- Login and Register Buttons -->
+    <div class="button-container">
+        <a href="/login" class="button">Login</a>
+        <a href="/register" class="button">Register</a>
+    </div>
+</body>
+</html>

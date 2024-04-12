@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://source.unsplash.com/1600x900/?weather'); /* Background image from Unsplash */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333; /* Dark heading color */
+        }
+        #weather-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+            text-align: left;
+            margin-top: 40px;
+            color: #333; /* Dark text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Ensuring font consistency */
+        }
+        #weather-info p {
+            margin: 10px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .weather-icon {
+            margin-right: 10px;
+            color: #007bff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Report</h1>
+        <div id="weather-info">
+            <!-- Weather data will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        async function fetchWeatherData(location) {
+            try {
+                const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=d246adb6ec3f4735af651400241104&q=${location}`);
+                const data = await response.json();
+                displayWeatherData(data);
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        }
+
+        function displayWeatherData(data) {
+            const weatherInfo = document.getElementById('weather-info');
+            weatherInfo.innerHTML = `
+                <p><i class="fas fa-thermometer-half weather-icon"></i>Temperature: ${data.current.temp_c}°C</p>
+                <p><i class="fas fa-thermometer-half weather-icon"></i>Feels Like: ${data.current.feelslike_c}°C</p>
+                <p><i class="fas fa-tint weather-icon"></i>Humidity: ${data.current.humidity}%</p>
+                <p><i class="fas fa-cloud weather-icon"></i>Cloud: ${data.current.cloud}%</p>
+                <p><i class="fas fa-eye weather-icon"></i>Visibility: ${data.current.vis_km} km</p>
+                <p><i class="fas fa-tachometer-alt weather-icon"></i>Pressure: ${data.current.pressure_mb} mb</p>
+                <p><i class="fas fa-cloud-showers-heavy weather-icon"></i>Precipitation: ${data.current.precip_mm} mm</p>
+                <p><i class="fas fa-wind weather-icon"></i>Wind: ${data.current.wind_kph} km/h, ${data.current.wind_dir}</p>
+                <p><i class="fas fa-sun weather-icon"></i>UV Index: ${data.current.uv}</p>
+            `;
+        }
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const location = urlParams.get('location');
+            if (location) {
+                // Fetch weather data based on the location
+                fetchWeatherData(location);
+            } else {
+                console.error('Location not found in URL.');
+            }
+        };
+    </script>
+</body>
+</html>

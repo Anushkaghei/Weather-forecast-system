@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #B3E5FC, #E0F7FA); /* Gradient resembling sky */
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #FFA726; /* Orange Button color resembling sunshine */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #FB8C00; /* Darker Orange hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Account</h2>
+        <form id="delete-form">
+            <label for="email">Enter your email to confirm account deletion:</label>
+            <input type="text" id="email" name="email" required>
+            <input type="submit" value="Delete Account">
+        </form>
+    </div>
+
+    <!-- JavaScript to handle delete account confirmation -->
+    <script>
+        document.getElementById("delete-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var email = document.getElementById("email").value;
+
+            if (email) {
+                // If the user entered an email address
+                // Send a POST request to the backend to delete the account
+                fetch('/deleteAccount?email=' + email, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // If deletion is successful, redirect to registration page
+                        window.location.href = "/register";
+                    } else {
+                        // Handle errors
+                        console.error('Error deleting account:', response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting account:', error);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

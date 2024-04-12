@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #B3E5FC, #E0F7FA); /* Gradient resembling sky */
+        }
+        .dashboard-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #64b5f6; /* Blue sidebar resembling sky */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar h3 {
+            margin-bottom: 20px;
+        }
+        .sidebar p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            background-color: #FFA726; /* Orange Button color resembling sunshine */
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #FB8C00; /* Darker Orange hover color */
+        }
+        .sidebar a i {
+            margin-right: 10px;
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        input[type="text"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #FFA726; /* Orange Button color resembling sunshine */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #FB8C00; /* Darker Orange hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <h3>User Profile</h3>
+            <a href="/update" id="update-profile"><i class="fas fa-user-edit"></i> Update Profile</a>
+            <a href="/report" id="weather-report"><i class="fas fa-chart-line"></i> Weather Report</a>
+            <a href="/delete" id="delete-account"><i class="fas fa-trash-alt"></i> Delete Account</a>
+            <a href="/login" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main-content">
+            <h2>Please enter the location you would like to view the trends for </h2>
+            <!-- Weather Search Form -->
+            <form action="/weather" method="get">
+                <input type="text" name="location" placeholder="Enter Location" required>
+                <input type="submit" value="Get Weather">
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

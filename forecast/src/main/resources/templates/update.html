@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #B3E5FC, #E0F7FA); /* Gradient resembling sky */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333; /* Dark text color for readability */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            color: #333; /* Dark text color for readability */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #FFA726; /* Orange Button color resembling sunshine */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #FB8C00; /* Darker Orange hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Profile</h2>
+        <form action="/updateProfile" method="post">
+
+            <label for="email">Current Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="Password">Current Password:</label>
+            <input type="password" id="Password" name="password">
+
+            <label for="newUsername">New Username:</label>
+            <input type="text" id="newUsername" name="newUsername">
+            
+            <label for="newEmail">New Email:</label>
+            <input type="email" id="newEmail" name="newEmail">
+            
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword">
+            
+            <input type="submit" value="Update">
+        </form>
+        
+        
+    </div>
+</body>
+</html>
