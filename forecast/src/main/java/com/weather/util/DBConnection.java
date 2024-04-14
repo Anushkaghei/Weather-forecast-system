@@ -8,8 +8,8 @@ public class DBConnection {
 
     // JDBC URL, username, and password of MySQL server
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/weather_app";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "Gobbles#77"; // Replace with your MySQL password
+    private static final String USERNAME = "USERNAME";
+    private static final String PASSWORD = "PASSWORD"; // Replace with your MySQL password
 
     // Static method to obtain a connection to the database
     public static Connection getConnection() {
