@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #B3E5FC, #E0F7FA); /* Gradient resembling sky */
+        }
+        h2 {
+            color: #333;
+            margin-top: 50px
+            margin-bottom: 20px;
+            align-items: center
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            padding: 60px;
+            margin-top: 50px
+
+        }
+        input[type="email"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #FFA726; /* Orange Button color resembling sunshine */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #FB8C00; /* Darker Orange hover color */
+        }
+    </style>
+</head>
+<body>
+        <h2>Please Enter Email</h2>
+        <form action="SendReportServlet" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+   </body>
+</html>
