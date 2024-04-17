@@ -25,6 +25,11 @@ public class UserController {
         return "login";
     }
 
+     @GetMapping("/report")
+    public String showreport() {
+        return "report";
+    }
+
     @GetMapping("/register")
     public String showRegisterPage() {
         return "register";
