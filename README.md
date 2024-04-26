@@ -19,4 +19,10 @@ mvn spring-boot:run
 ```
 5. access the application on localhost:8080
 
+### A Few Outputs
 
+![image](https://github.com/Anushkaghei/Weather-forecast-system/assets/79694271/e6ab2c52-fae0-4d2e-9cec-3d28f5ab588a)
+
+![image](https://github.com/Anushkaghei/Weather-forecast-system/assets/79694271/9c6d0239-71ca-4cdf-847f-70c6c1a5a1ad)
+
+![image](https://github.com/Anushkaghei/Weather-forecast-system/assets/79694271/8723a949-974a-42c9-95af-7753a7985047)
